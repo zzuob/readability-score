@@ -5,7 +5,7 @@ public class Main {
         if (args.length >= 1) {
             String text = Text.getTextFromFile(args[0]);
             Breakdown breakdown = new Breakdown(text);
-            Readability.getARI(breakdown.getCharacters(), breakdown.getWordCount(), breakdown.getSentences());
+            Readability.getARI(breakdown);
         } else {
             System.out.println("Error - missing filename\n Usage: java Main FILENAME");
             System.exit(-1);

@@ -26,22 +26,24 @@ public class Breakdown {
     private String[] splitSentences() {
         // split a string by sentence terminators
        if (getText() == null) return new String[] {""};
-       else return getText().split("\\.|\\.{3}|!|\\?");
+       else return getText().split("\\.|!|\\?");
        }
 
-    public int averageWords() {
-        // calculate average words per sentence and set statistics
+    public void calculateStats() {
+        // calculate the statistics for this.text
         int sentences = 0;
         int wordCount = 0;
         int characters = 0;
         for (String sentence: splitSentences()
              ) {
-            String[] words = sentence.split("(,*)\\s");
+            String[] words = sentence.trim().split("\\s");
             sentences++;
             wordCount += words.length;
-            for (String word: words
-                 ) {
-                characters += word.length();
+        }
+        for (char c: getText().toCharArray()
+        ) {
+            if (String.valueOf(c).matches("\\S")) {
+                characters++;// only count visible symbols
             }
         }
         if (sentences == 0) sentences = 1;
@@ -49,12 +51,11 @@ public class Breakdown {
         this.sentences = sentences;
         this.wordCount = wordCount;
         this.characters = characters;
-        return wordCount/sentences;
     }
 
     public Breakdown(String text) {
 
         this.text = text;
-        averageWords();
+        calculateStats();
     }
 }

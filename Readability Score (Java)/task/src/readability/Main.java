@@ -1,11 +1,14 @@
 package readability;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Breakdown breakdown = new Breakdown(scanner.nextLine());
-        Readability.getARI(breakdown.getCharacters(), breakdown.getWordCount(), breakdown.getSentences());
+        if (args.length >= 1) {
+            String text = Text.getTextFromFile(args[0]);
+            Breakdown breakdown = new Breakdown(text);
+            Readability.getARI(breakdown.getCharacters(), breakdown.getWordCount(), breakdown.getSentences());
+        } else {
+            System.out.println("Error - missing filename\n Usage: java Main FILENAME");
+            System.exit(-1);
+        }
     }
 }

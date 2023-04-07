@@ -4,6 +4,7 @@ Get words, sentences and character count from a text file, and calculate it's:
 - [Flesch–Kincaid readability test (FK)](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) 
 - [Simple Measure of Gobbledygook (SMOG)](https://en.wikipedia.org/wiki/SMOG)
 - [Coleman–Liau index (CL)](https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index)
+
 to 2 decimal places.
 
 
